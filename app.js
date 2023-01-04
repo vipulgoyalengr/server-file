@@ -9,7 +9,7 @@ app.use(function(req,res,next){
     next();
 });
 let path = require('path');
-app.use(cors()); 
+
 app.use(bodyParser.json({limit: '50mb'}));
 app.get('*',(req,res)=>{
     console.log("In get")
