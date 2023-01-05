@@ -14,7 +14,7 @@ const db = getFirestore();
 var app=express();
 cron.schedule("*/10 * * * * *", function() {
     console.log("running a task every 10 second");
-    const snapshot =  db.collection('users').get();
+    const snapshot = db.collection('users').get();
     snapshot.forEach((doc) => {
           console.log(doc.id, '=>', doc.data());
         });
