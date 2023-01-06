@@ -16,14 +16,7 @@ cron.schedule("*/10 * * * * *", async() =>{
     console.log("running a task every 10 second");
 
 
-      const snapshot2 = await db.collection('users').get();
 
-    snapshot2.forEach(async(doc1) => {
-          console.log(doc1.id, '=>', doc1.data());
-          const cityRef =await db.collection('analytics').doc(doc1.data().username);
-          const res = await cityRef.update({count: 0});
-          const res2 = await cityRef.update({data1: FieldValue.arrayUnion(Math.random())})
-        });
 
 });
 app.get('*',(req,res)=>{
