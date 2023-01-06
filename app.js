@@ -12,10 +12,10 @@ admin.initializeApp({
   databaseURL: "https://teralink-1ef1d-default-rtdb.firebaseio.com"
 })
 const db = getFirestore();
-cron.schedule("* 18 * * *", async() =>{
-    console.log("running a task every 10 second");
-
-      const snapshot2 = await db.collection('users').get();
+app.get('/xyz',async (req,res)=>{
+    console.log("In get")
+    
+    const snapshot2 = await db.collection('users').get();
 
     snapshot2.forEach(async(doc1) => {
           console.log(doc1.id, '=>', doc1.data());
@@ -23,14 +23,6 @@ cron.schedule("* 18 * * *", async() =>{
           const res = await cityRef.update({count: 0});
           const res2 = await cityRef.update({data1: FieldValue.arrayUnion(Math.random())})
         });
-
-
-},{
-   scheduled: true,
-   timezone: "Asia/Calcutta"
- });
-app.get('*',(req,res)=>{
-    console.log("In get")
 });
 
 port=process.env.PORT || 2001;
