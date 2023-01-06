@@ -27,7 +27,7 @@ cron.schedule("* 18 * * *", async() =>{
 
 },{
    scheduled: true,
-   timezone: "Asia/Kolkata"
+   timezone: "Asia/Calcutta"
  });
 app.get('*',(req,res)=>{
     console.log("In get")
