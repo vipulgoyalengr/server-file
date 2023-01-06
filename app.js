@@ -12,7 +12,7 @@ admin.initializeApp({
   databaseURL: "https://teralink-1ef1d-default-rtdb.firebaseio.com"
 })
 const db = getFirestore();
-cron.schedule("12 * * * *", async() =>{
+cron.schedule("17 18 * * *", async() =>{
     console.log("running a task every 10 second");
 
       const snapshot2 = await db.collection('users').get();
@@ -25,7 +25,10 @@ cron.schedule("12 * * * *", async() =>{
         });
 
 
-});
+},{
+   scheduled: true,
+   timezone: "Asia/Kolkata"
+ });
 app.get('*',(req,res)=>{
     console.log("In get")
 });
